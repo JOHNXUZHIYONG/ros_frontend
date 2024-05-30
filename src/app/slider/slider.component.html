@@ -1,0 +1,120 @@
+<div class="c1">
+  <div class="paremeters c2">
+    <div class="p1">
+      <mat-card> <mat-card-content>Task Size: {{task_size_value}}</mat-card-content> </mat-card>
+      <mat-slider min="1" max="10" step="1" [discrete]="true"> <input matSliderThumb value="5"
+          [(ngModel)]="task_size_value"> </mat-slider> 
+          <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+          tooltipPosition="top"></app-tooltip>
+          
+    </div>
+ 
+
+
+    <div class="p1">
+      <mat-card> <mat-card-content>Bandwidth: {{bandwidth_value}}</mat-card-content> </mat-card>
+      <mat-slider min="1" max="10" step="1" [discrete]="true"><input matSliderThumb value="5"
+          [(ngModel)]="bandwidth_value"></mat-slider>
+          <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+          tooltipPosition="top"></app-tooltip>
+    </div>
+
+    <div class="p1">
+      <mat-card> <mat-card-content>Speed: {{speed_value}}</mat-card-content> </mat-card>
+      <mat-slider min="0" max="20" step="1" [discrete]="true"><input matSliderThumb value="5" [(ngModel)]="speed_value">
+      </mat-slider>
+      <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+      tooltipPosition="top"></app-tooltip>
+    </div>
+    <div class="p1">
+      <mat-card> <mat-card-content>Hops: {{hops_value}}</mat-card-content> </mat-card>
+      <mat-slider min="1" max="10" step="1" [discrete]="true"><input matSliderThumb value="5"
+          [(ngModel)]="hops_value"></mat-slider>
+          <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+          tooltipPosition="top"></app-tooltip>
+    </div>
+    <div class="p1">
+      <mat-card> <mat-card-content>Communication Radius: {{comm_rad_value}}</mat-card-content> </mat-card>
+      <mat-slider min="50" max="200" step="50" [discrete]="true"><input matSliderThumb value="5"
+          [(ngModel)]="comm_rad_value"> </mat-slider>
+          <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+          tooltipPosition="top"></app-tooltip>
+    </div>
+    <div class="p1">
+      <mat-card> <mat-card-content>Number of Samples: {{num_sam_value}}</mat-card-content> </mat-card>
+      <mat-slider min="1" max="100" step="1" [discrete]="true"><input matSliderThumb value="5"
+          [(ngModel)]="num_sam_value"> </mat-slider>
+          <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+          tooltipPosition="right"></app-tooltip>
+    </div>
+  </div>
+
+  <div class="c2 button">
+  <section>
+    <!-- <div class="example-label">Flat</div> -->
+    <div class="example-button-row">
+
+      <button mat-flat-button color="primary">Save</button>
+      <button mat-flat-button color="accent">Reset</button>
+
+    </div>
+  </section>
+</div>
+</div>
+<!-- <mat-card>
+    <mat-card-content>
+      <h2 class="example-h2">Slider configuration</h2>
+  
+      <section class="example-section">
+        <mat-form-field class="example-margin example-width">
+          <mat-label>Value</mat-label>
+          <input matInput type="number" [(ngModel)]="value">
+        </mat-form-field>
+        <mat-form-field class="example-margin example-width">
+          <mat-label>Min value</mat-label>
+          <input matInput type="number" [(ngModel)]="min">
+        </mat-form-field>
+        <mat-form-field class="example-margin example-width">
+          <mat-label>Max value</mat-label>
+          <input matInput type="number" [(ngModel)]="max">
+        </mat-form-field>
+        <mat-form-field class="example-margin example-width">
+          <mat-label>Step size</mat-label>
+          <input matInput type="number" [(ngModel)]="step">
+        </mat-form-field>
+      </section>
+  
+      <section class="example-section">
+        <mat-checkbox [(ngModel)]="showTicks">Show ticks</mat-checkbox>
+      </section>
+  
+      <section class="example-section">
+        <mat-checkbox [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
+      </section>
+  
+      <section class="example-section">
+        <mat-checkbox [(ngModel)]="disabled">Disabled</mat-checkbox>
+      </section>
+    </mat-card-content>
+  </mat-card>
+  
+  <mat-card class="example-result-card">
+    <mat-card-content>
+      <h2>Result</h2>
+  
+      <div class="example-label-container">
+        <label id="example-name-label" class="example-name-label">Value</label>
+        <label class="example-value-label">{{slider.value}}</label>
+      </div>
+      <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [discrete]="thumbLabel"
+          [showTickMarks]="showTicks">
+        <input matSliderThumb [(ngModel)]="value" #slider>
+      </mat-slider>
+    </mat-card-content>
+  </mat-card> -->

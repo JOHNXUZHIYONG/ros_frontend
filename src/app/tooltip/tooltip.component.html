@@ -1,0 +1,9 @@
+
+
+<div class="image-container" (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()">
+    <img [src]="imageSrc" alt="Image with tooltip" class="image">
+    <div class="tooltip" [ngClass]="tooltipPosition" *ngIf="tooltipVisible">
+      {{ tooltipText }}
+    </div>
+  </div>
+  

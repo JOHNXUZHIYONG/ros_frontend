@@ -1,0 +1,22 @@
+<div class="cc1">
+
+  <!-- <div class="title">xvcxcvxc</div> -->
+  <div class="title">
+    About
+
+  </div>
+  <div class="thank-you-note">
+    <b style="font-size:30px">Team:</b>
+    <br><br>
+    <ng-container *ngFor="let member of teamMembers">
+      <b><i>{{ member.role }}:</i></b> {{ member.name }}<br>
+    </ng-container>
+
+    <br><br>
+
+    <i [innerHTML]="thankYouMessage"></i>
+  </div>
+
+  <app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png" tooltipText="This is the first tooltip text"
+    tooltipPosition="top"></app-tooltip>
+</div>

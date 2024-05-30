@@ -1,0 +1,47 @@
+<div class="thank-you-note">
+    <i>
+        {{thankYouMessage}}
+    </i>
+</div>
+
+
+<div class="background-container c1">
+
+    <!-- top banner -->
+    <div class="navbar">
+        <div class="logo">
+
+            <img src="assets\pictures\artc-logo.png" id="logo" alt="ARTC logo">
+        </div>
+        <div class="button">
+            <a routerLink="/home" routerLinkActive="active">Home</a>
+            <a routerLink="/about" routerLinkActive="active">About</a>
+            <a routerLink="/details" routerLinkActive="active">Details</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+</div>
+
+
+    <!-- page content-->
+    <div class="button-container">
+
+        <!-- toggle button -->
+        <div class="toggle-button">
+            <div class="button">
+                <div class="light-mode-text" id="light-mode-text">Light Mode</div>
+                <input type="checkbox" id="dark-mode-input" class="light-mode">
+                <label for="dark-mode-input" id="dark-mode-label"></label>
+                <div class="dark-mode-text" id="dark-mode-text" style="padding-left: 4px;">Dark Mode</div>
+            </div>
+        </div>
+
+     
+

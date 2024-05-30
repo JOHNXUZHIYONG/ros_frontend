@@ -1,0 +1,44 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image {
+    width: 20px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .tooltip {
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  
+  .tooltip.top {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%, -50%);
+  }
+  
+  .tooltip.bottom {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .tooltip.left {
+    left: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .tooltip.right {
+    right: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  

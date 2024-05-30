@@ -1,0 +1,29 @@
+/* .thank-you-note{
+   
+    width: 80vw;
+    text-align: center;
+    font-size: 25px;
+
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.title { display: flex;
+    flex: 1;
+    background-color: aqua;
+    height: 100%;
+} */
+
+.cc1{
+    /* display: block; */
+    height: 50vh;
+    width: 80vw;
+    /* flex: 1; */
+    background-color: lightgreen;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    padding: 50px;
+}

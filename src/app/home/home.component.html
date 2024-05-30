@@ -1,0 +1,162 @@
+<div class="container c1">
+    <mat-tab-group class="tab">
+        <mat-tab label="First: Select paremeters" class="c2"> <app-slider></app-slider> </mat-tab>
+
+        <mat-tab label="Second: Select use case" class="c2">
+            <div class="use-case">
+                <div class="indoor">
+                    <h1>Indoor Use Case</h1><app-checkbox></app-checkbox>
+                    <div class="button">
+                        <section>
+                          <!-- <div class="example-label">Flat</div> -->
+                          <div class="example-button-row">
+                      
+                            <button mat-flat-button color="primary">Save</button>
+                            <button mat-flat-button color="accent">Reset</button>
+                      
+                          </div>
+                        </section>
+                      </div>
+                    
+                </div>
+                <div class="outdoor">
+                    <h1>Outdoor Use Case</h1><app-checkbox></app-checkbox>
+                    <div class="button">
+                        <section>
+                          <!-- <div class="example-label">Flat</div> -->
+                          <div class="example-button-row">
+                      
+                            <button mat-flat-button color="primary" >Save</button>
+                            <button mat-flat-button color="accent">Reset</button>
+                      
+                          </div>
+                        </section>
+                      </div>
+                </div>
+            </div>
+        </mat-tab>
+        
+
+        <!-- <div class="example-container">
+            <mat-form-field>
+              <mat-label>Enter your email</mat-label>
+              <input matInput
+                     placeholder="pat@example.com"
+                     [formControl]="email"
+                     (blur)="updateErrorMessage()"
+                     required>
+              @if (email.invalid) {
+                <mat-error>{{errorMessage}}</mat-error>
+              }
+            </mat-form-field>
+          </div> -->
+
+
+
+
+
+        
+        <mat-tab label="Third: Get report"> <div class="spinner"> <mat-spinner ></mat-spinner></div> </mat-tab>
+
+    </mat-tab-group>
+</div>
+
+<!-- end page content-->
+
+<!-- CRP title -->
+<!-- <div class="title">
+        <h1>CRP 10</h1>
+        <h2>Towards 5G Autonomous Robotics:<br>Wireless Performance Analysis</h2>
+
+    </div> -->
+
+<!-- Pre defined parameters -->
+<!-- <div class="parameter-inputs row-flex">
+        <form id="parameter-form" method="post" action="/setparameters/setusecase" enctype="multipart/form-data">
+
+            <div class="task-size column-flex ">
+                <div class="data row-flex">
+                    <label>Task Size </label>
+                    <span class=" slider-font" id=" task_size">{{task_size_value}}</span>
+                    <span id="unit"> kB</span>
+                </div>
+                <input type="range" min="1" max="10" [(ngModel)]="task_size_value" step="1" class="slider"
+                    id="task_size_range" name="task_size_range">
+                <br>
+
+            </div>
+
+            <div class="bandwidth column-flex ">
+                <div class="data row-flex">
+                    <label>Bandwidth </label>
+                    <span id=" bandwidth">{{bandwidth_value}}</span>
+                    <span id="unit"> MHz</span>
+                </div>
+                <input type="range" min="1" max="10" [(ngModel)]="bandwidth_value" step="1" class="slider"
+                    id="bandwidth_range" name="bandwidth_range">
+                <br>
+            </div>
+
+            <div class="speed column-flex ">
+                <div class="data row-flex">
+                    <label>Speed </label>
+                    <span id=" speed">{{speed_value}}</span>
+                    <span id="unit"> km/h</span>
+                    <span><app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png"
+                            tooltipText="This is the first tooltip text" tooltipPosition="top"></app-tooltip></span>
+                </div>
+                <input type="range" min="0" max="20" [(ngModel)]="speed_value" step="1" class="slider" id="speed_range"
+                    name="speed_range">
+                <br>
+            </div>
+
+            <div class="hops column-flex ">
+                <div class="data row-flex">
+                    <label>Hops </label>
+                    <span id=" hops">{{hops_value}}</span>
+                    <span id="unit"> </span>
+                    <span><app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png"
+                            tooltipText="This is the first tooltip text" tooltipPosition="top"></app-tooltip></span>
+                </div>
+                <input type="range" min="1" max="10" [(ngModel)]="hops_value" step="1" class="slider" id="hops_range"
+                    name="hops_range">
+                <br>
+            </div>
+
+            <div class="comm_rad column-flex ">
+                <div class="data row-flex">
+                    <label>Communication Radius </label>
+                    <span id=" comm_rad">{{comm_rad_value}}</span>
+                    <span id="unit"> m</span>
+                    <span><app-tooltip imageSrc="assets/pictures/Blue_question_mark_icon.svg.png"
+                            tooltipText="This is the first tooltip text" tooltipPosition="top"></app-tooltip></span>
+                </div>
+                <input type="range" min="50" max="200" [(ngModel)]="comm_rad_value" step="50" class="slider"
+                    id="comm_rad_range" name="comm_rad_range">
+                <br>
+            </div>
+
+            <div class="num_sam column-flex ">
+                <div class="data row-flex">
+                    <label>Number of Samples </label>
+                    <span id=" num_sam">{{num_sam_value}}</span>
+                    <span id="unit"> thousand</span>
+                </div>
+                <input type="range" min="1" max="100" [(ngModel)]="num_sam_value" step="1" class="slider"
+                    id="num_sam_range" name="num_sam_range">
+                <br>
+            </div>
+
+           
+            <div class="form-submission">
+                <div class="submit_form">
+                    <input class="submit" id="submit_indoor" type="button" value="Compute">
+                </div>
+
+                <div class="reset">
+                    <input class="reset" id="reset_indoor" type="button" value="Reset" (click)="resetValues()">
+                </div>
+            </div>
+
+        </form>
+    </div> -->

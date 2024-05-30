@@ -1,0 +1,31 @@
+.c1 {
+    position: relative;
+
+    /* height: 60vh; */
+    width: 35vw;
+    margin: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: blueviolet;
+    border: 2px solid red; */
+}
+.example-section{
+    flex: 1;
+    border: 2px solid black;
+    width: 80%;
+
+}
+
+.example-list-section ul {
+    list-style-type: none; /* 移除列表项前面的点 */
+    padding: 0; /* 移除内边距 */
+    margin: 0; /* 移除外边距 */
+  }
+
+  .example-margin, .example-list-section li {
+    display: flex; /* 使列表项中的内容左对齐 */
+    align-items: center; /* 垂直居中对齐 */
+  }
