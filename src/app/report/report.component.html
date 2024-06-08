@@ -1,0 +1,82 @@
+<p>report works!</p>
+<h1>sdfasfasdfasdfsd</h1>
+<h1>{{report | json}}</h1>
+
+
+<div>
+  <h1>get_item</h1>
+<form #getform="ngForm" (ngSubmit)="get_item(item_id)">
+  <input type="number" name="item_id" [(ngModel)]="item_id" required>
+  <button type="submit">Submit</button>
+  <div *ngIf="getform.controls['item_id']?.invalid && getform.controls['item_id']?.touched">
+    Item ID is required
+  </div>
+</form>
+</div>
+
+<div>
+  <h1>add_item</h1>
+  <form #add_form = "ngForm" (ngSubmit)="add_item(add_item_body)">
+    <input type="text" name="name" [(ngModel)] = 'add_item_body.name' required>
+    <input type="number" name="price" [(ngModel)]="add_item_body.price" required>
+    <button type="submit"> Submit </button>
+    <div *ngIf="add_form.controls['name']?.invalid && add_form.controls['name']?.touched">Name is required </div>
+    <div *ngIf="add_form.controls['price']?.valid && add_form.controls['price']?.touched"> Price is required </div>
+  </form>
+  <h2>{{add_item_response | json}}</h2>
+</div>
+
+<div>
+  <h1>delete_item</h1>
+  <form #delete_form = "ngForm" (ngSubmit)="delete_item(delete_item_id)">
+    <input type="number" name="delete_item_id" [(ngModel)]="delete_item_id" required>
+    <button type="submit">submit</button>
+    <div *ngIf="delete_form.controls['delete_item_id']?.invalid && delete_form.controls['delete_item_id']?.touched"> Id is required</div>
+  </form>
+  <h2>{{delete_item_response | json}}</h2>
+</div>
+
+<div>
+  <h1>update_item</h1>
+  <form #update_form="ngForm" (ngSubmit)="update_item(update_item_id,update_item_body)">
+    <input type="number" name="update_item_id" [(ngModel)]="update_item_id"   required>
+    <button type="submit"> submit</button>
+    <div *ngIf="update_form.controls['update_item_id']?.invalid && update_form.controls['update_item_id']?.touched"> Id is required </div>
+  </form>
+  <h2>{{update_item_response | json}}</h2>
+</div>
+
+
+<!-- <div>
+  <input type="text" id="name">
+  <input type="number" id="price">
+</div>
+
+
+<input type="number" [(ngModel)]="pdf_id">
+<button (click)="get_report(pdf_id)">get pdf</button>
+<h1>{{pdf }}</h1>
+
+
+
+<button (click)="f()">submit</button>
+<h1>{{add_item_data | json}}</h1>
+<button (click)="add_item(body)">Get Item</button> -->
+
+
+
+
+<!-- <div>
+  <input type="number" #pdfId placeholder="Enter PDF ID">
+  <button (click)="get_report(pdfId.value)">Download PDF</button>
+</div> -->
+
+<!-- <div *ngIf="report">
+    <h2>Report Details</h2>
+    <p>ID: {{ report.id }}</p>
+    <p>Name: {{ report.name }}</p>
+    <p>Age: {{ report.age }}</p>
+  </div>
+  
+  <button (click)="addReport()">Add Report</button>
+  <button (click)="deleteReport(report.id)">Delete Report</button> -->

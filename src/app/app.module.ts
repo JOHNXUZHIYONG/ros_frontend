@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { HttpClientModule } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
@@ -30,6 +30,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SliderComponent } from './slider/slider.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ReportComponent } from './report/report.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -41,12 +43,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DetailsComponent,
     TooltipComponent,
     SliderComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    ReportComponent,
+    TestComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatSliderModule,
     FormsModule,
     HammerModule,
@@ -60,7 +66,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     MatFormFieldModule, 
     MatProgressSpinnerModule,
-    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
+    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
     
 
 

@@ -1,0 +1,10 @@
+<p>test works!</p>
+<div *ngIf="report">
+    <h2>Report Details</h2>
+    <p>ID: {{ report.id }}</p>
+    <p>Name: {{ report.name }}</p>
+    <p>Age: {{ report.age }}</p>
+  </div>
+  
+  <button (click)="addReport()">Add Report</button>
+  <button (click)="deleteReport(report.id)">Delete Report</button>
