@@ -37,7 +37,14 @@ throw new Error('Method not implemented.');
   update_user_body:any;
   update_user_response:any;
 
-  pdf_id: number = 1;
+  get_pdf_id: number = 1;
+  get_pdf_response:any;
+
+  add_pdf_id: number =1;
+  add_pdf_body: string = '';
+  add_pdf_response: any;
+
+
   report: any;
   item: any;
   // body = {"name": "john",
@@ -112,28 +119,30 @@ update_user(id:number,body:any)
   this.reportService.update_user(id,body).subscribe((data)=>{this.update_user_response=data},(error)=>{this.update_user_response=error})
 }
 
-f(){
-  console.log(123)
+// pdf
+get_pdf (id:number){
+  id = this.get_pdf_id;
+  this.reportService.get_pdf(id).subscribe(  blob => {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `document_${id}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  },
+  error=>{this.get_pdf_response = error}
+)
 }
-  get_report(id:number){
-    id = this.pdf_id;
-    this.reportService.get_report(id).subscribe(blob => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `document_${id}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }, error => {
-      console.error('Error downloading PDF', error);
-    });
-  }
+
+add_pdf(id:number, content:string){
+  id =  this.add_pdf_id;
+  content = this.add_pdf_body;
+  this.reportService.add_pdf(id,content).subscribe( data =>{this.add_pdf_response = data}, error =>{this.add_pdf_response=error}  )
+}
 
 
-  
-  
 
   ngOnInit(): void {
     this.show_hello();

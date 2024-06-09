@@ -8,3 +8,21 @@
   
   <button (click)="addReport()">Add Report</button>
   <button (click)="deleteReport(report.id)">Delete Report</button>
+  <div class="stepper">
+    <mat-stepper>
+      <mat-step label="Select a Use Case">
+        <p>Please select a use case</p>
+        <button matStepperNext mat-raised-button type="button">Next</button>
+      </mat-step>
+      <mat-step label="Select Parameters">
+        <p>Please select parameters</p>
+        <button matStepperPrevious mat-raised-button type="button">Back</button>
+        <button matStepperNext mat-raised-button type="button">Next</button>
+      </mat-step>
+      <mat-step label="Email Address">
+        <p>Please key in you email address to receive report</p>
+        <button matStepperPrevious mat-raised-button type="button">Back</button>
+        <button matStepperNext mat-raised-button type="button">Next</button>
+      </mat-step>
+    </mat-stepper>
+  </div>

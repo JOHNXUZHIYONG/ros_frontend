@@ -1,108 +1,172 @@
-<p>report works!</p>
-<h1>sdfasfasdfasdfsd</h1>
-<h1>{{report | json}}</h1>
+<div class="container">
 
+  <div class='item'>
+    <div>
+      <h1>get_item</h1>
+      <form #getform="ngForm" (ngSubmit)="get_item(item_id)">
 
-<div>
-  <h1>get_item</h1>
-  <form #getform="ngForm" (ngSubmit)="get_item(item_id)">
+        <mat-label>Get an item by ID</mat-label>
+        <input matInput placeholder="key in ID" type="number" name="item_id" [(ngModel)]="item_id" required>
 
-    <mat-label>Get an item by ID</mat-label>
-    <input matInput placeholder="key in ID" type="number" name="item_id" [(ngModel)]="item_id" required>
-
-    <button mat-raised-button color="primary" type="submit">Submit</button>
-    <div *ngIf="getform.controls['item_id']?.invalid && getform.controls['item_id']?.touched">
-      Item ID is required
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <div *ngIf="getform.controls['item_id']?.invalid && getform.controls['item_id']?.touched">
+          Item ID is required
+        </div>
+      </form>
+      <h2>{{get_item_response|json}}</h2>
     </div>
-  </form>
-  <h2>{{get_item_response|json}}</h2>
+
+    <div>
+      <h1>add_item</h1>
+      <form #add_form="ngForm" (ngSubmit)="add_item(add_item_body)">
+        <input type="text" name="name" [(ngModel)]='add_item_body.name' required>
+        <input type="number" name="price" [(ngModel)]="add_item_body.price" required>
+        <button type="submit"> Submit </button>
+        <div *ngIf="add_form.controls['name']?.invalid && add_form.controls['name']?.touched">Name is required </div>
+        <div *ngIf="add_form.controls['price']?.valid && add_form.controls['price']?.touched"> Price is required </div>
+      </form>
+      <h2>{{add_item_response | json}}</h2>
+    </div>
+
+    <div>
+      <h1>delete_item</h1>
+      <form #delete_form="ngForm" (ngSubmit)="delete_item(delete_item_id)">
+        <input type="number" name="delete_item_id" [(ngModel)]="delete_item_id" required>
+        <button type="submit">submit</button>
+        <div *ngIf="delete_form.controls['delete_item_id']?.invalid && delete_form.controls['delete_item_id']?.touched">
+          Id
+          is required</div>
+      </form>
+      <h2>{{delete_item_response | json}}</h2>
+    </div>
+
+    <div>
+      <h1>update_item</h1>
+      <form #update_form="ngForm" (ngSubmit)="update_item(update_item_id,update_item_body)">
+        <input type="number" name="update_item_id" [(ngModel)]="update_item_id" required>
+        <button type="submit"> submit</button>
+        <div *ngIf="update_form.controls['update_item_id']?.invalid && update_form.controls['update_item_id']?.touched">
+          Id
+          is required </div>
+      </form>
+      <h2>{{update_item_response | json}}</h2>
+    </div>
+  </div>
+
+
+  <div class='user'>
+    <div>
+      <h1>get_user</h1>
+      <form #get_user_form="ngForm" (ngSubmit)="get_user(get_user_id)">
+        <mat-form-field>
+          <mat-label>Get an user by id</mat-label>
+          <input matInput type="number" name="get_user_id" [(ngModel)]="get_user_id" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">submit</button>
+      </form>
+      <div *ngIf="get_user_form.controls['get_user_id']?.invalid && get_user_form.controls['get_user_id']?.touched"> Id
+        is
+        required</div>
+      <h2>{{get_user_response | json}}</h2>
+    </div>
+
+    <div>
+      <h1>add_user</h1>
+      <form #add_user_form="ngForm" (ngSubmit)="add_user(add_user_body)">
+        <input type="text" name="add_user_name" [(ngModel)]="add_user_body.name" required>
+        <input type="text" name="add_user_email" [(ngModel)]="add_user_body.email" required>
+        <button type="submit">submit</button>
+      </form>
+      <div *ngIf="add_user_form.controls['add_user_name']?.invalid && add_user_form.controls['add_user_name']?.touched">
+        name is required</div>
+      <div
+        *ngIf="add_user_form.controls['add_user_email']?.invalid && add_user_form.controls['add_user_email']?.touched">
+        email is required</div>
+      <h2 *ngIf="add_user_response && add_user_response.data">
+        {{add_user_response.data.name}} {{add_user_response.data.id}}
+      </h2>
+    </div>
+
+    <div>
+      <h1>delete_user</h1>
+      <form #delete_user_form="ngForm" (ngSubmit)="delete_user(delete_user_id)">
+        <input type="number" name="delete_user_id" id="" [(ngModel)]="delete_user_id" required>
+        <button type="submit"> submit </button>
+      </form>
+      <div
+        *ngIf="delete_user_form.controls['delete_user_id']?.invalid && delete_user_form.controls['delete_user_id']?.touched">
+        Id is required</div>
+      <h2>{{delete_user_response | json}}</h2>
+    </div>
+
+    <div>
+      <h1>update_user</h1>
+      <form #update_user_form="ngForm" (ngSubmit)="update_user(update_user_id,update_user_body)">
+        <input type="number" name="update_user_id" [(ngModel)]="update_user_id">
+        <button type="submit">submit</button>
+      </form>
+      <div
+        *ngIf="update_user_form.controls['update_user_id']?.invalid && update_user_form.controls['update_user_id']?.touched ">
+        Id is required</div>
+      <h2>{{update_user_response|json}}</h2>
+    </div>
+
+
+  </div>
+
+
+  <div class='pdf'>
+    <div>
+      <h1>get_pdf</h1>
+      <form #get_pdf_form="ngForm" (ngSubmit)="get_pdf(get_pdf_id)">
+        <input type="number" name="get_pdf_id" id="" [(ngModel)]="get_pdf_id" required>
+        <button type="submit">submit</button>
+      </form>
+      <div *ngIf="get_pdf_form.controls['get_pdf_id']?.invalid && get_pdf_form.controls['get_pdf_id']?.touched"> Id is
+        required</div>
+      <h2>{{get_pdf_response | json}}</h2>
+    </div>
+
+    <div>
+      <h1>add_pdf</h1>
+      <form #add_pdf_form="ngForm" (ngSubmit)="add_pdf(add_pdf_id, add_pdf_body)">
+        <input type="number" name="add_pdf_id" id="" [(ngModel)]="add_pdf_id" required>
+        <input type="sting" name="add_pdf_body" id="" [(ngModel)]="add_pdf_body" required>
+        <button type="submit">submit</button>
+      </form>
+      <div *ngIf="add_pdf_form.controls['add_pdf_id']?.invalid && add_pdf_form.controls['add_pdf_id']?.touched"> Id is
+        required</div>
+      <div *ngIf="add_pdf_form.controls['add_pdf_body']?.invalid && add_pdf_form.controls['add_pdf_body']?.touched">
+        Content is required</div>
+      <h2>{{add_pdf_response | json}}</h2>
+    </div>
+  </div>
+
+  <div class="stepper">
+    <mat-stepper>
+      <mat-step label="Select a Use Case">
+        <p>Please select a use case</p>
+        <button matStepperNext mat-raised-button type="button">Next</button>
+      </mat-step>
+      <mat-step label="Select Parameters">
+        <p>Please select parameters</p>
+        <button matStepperPrevious mat-raised-button type="button">Back</button>
+        <button matStepperNext mat-raised-button type="button">Next</button>
+      </mat-step>
+      <mat-step label="Email Address">
+        <p>Please key in you email address to receive report</p>
+        <button matStepperPrevious mat-raised-button type="button">Back</button>
+        <button matStepperNext mat-raised-button type="button">Next</button>
+      </mat-step>
+    </mat-stepper>
+  </div>
+
+
 </div>
 
-<div>
-  <h1>add_item</h1>
-  <form #add_form="ngForm" (ngSubmit)="add_item(add_item_body)">
-    <input type="text" name="name" [(ngModel)]='add_item_body.name' required>
-    <input type="number" name="price" [(ngModel)]="add_item_body.price" required>
-    <button type="submit"> Submit </button>
-    <div *ngIf="add_form.controls['name']?.invalid && add_form.controls['name']?.touched">Name is required </div>
-    <div *ngIf="add_form.controls['price']?.valid && add_form.controls['price']?.touched"> Price is required </div>
-  </form>
-  <h2>{{add_item_response | json}}</h2>
-</div>
 
-<div>
-  <h1>delete_item</h1>
-  <form #delete_form="ngForm" (ngSubmit)="delete_item(delete_item_id)">
-    <input type="number" name="delete_item_id" [(ngModel)]="delete_item_id" required>
-    <button type="submit">submit</button>
-    <div *ngIf="delete_form.controls['delete_item_id']?.invalid && delete_form.controls['delete_item_id']?.touched"> Id
-      is required</div>
-  </form>
-  <h2>{{delete_item_response | json}}</h2>
-</div>
 
-<div>
-  <h1>update_item</h1>
-  <form #update_form="ngForm" (ngSubmit)="update_item(update_item_id,update_item_body)">
-    <input type="number" name="update_item_id" [(ngModel)]="update_item_id" required>
-    <button type="submit"> submit</button>
-    <div *ngIf="update_form.controls['update_item_id']?.invalid && update_form.controls['update_item_id']?.touched"> Id
-      is required </div>
-  </form>
-  <h2>{{update_item_response | json}}</h2>
-</div>
 
-<div>
-  <h1>get_user</h1>
-  <form #get_user_form="ngForm" (ngSubmit)="get_user(get_user_id)">
-    <mat-form-field>
-      <mat-label>Get an user by id</mat-label>
-      <input matInput type="number" name="get_user_id" [(ngModel)]="get_user_id" required>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">submit</button>
-  </form>
-  <div *ngIf="get_user_form.controls['get_user_id']?.invalid && get_user_form.controls['get_user_id']?.touched"> Id is
-    required</div>
-  <h2>{{get_user_response | json}}</h2>
-</div>
-
-<div>
-  <h1>add_user</h1>
-  <form #add_user_form="ngForm" (ngSubmit)="add_user(add_user_body)">
-    <input type="text" name="add_user_name" [(ngModel)]="add_user_body.name" required>
-    <input type="text" name="add_user_email" [(ngModel)]="add_user_body.email" required>
-    <button type="submit">submit</button>
-  </form>
-  <div *ngIf="add_user_form.controls['add_user_name']?.invalid && add_user_form.controls['add_user_name']?.touched">
-    name is required</div>
-  <div *ngIf="add_user_form.controls['add_user_email']?.invalid && add_user_form.controls['add_user_email']?.touched">
-    email is required</div>
-  <h2>{{add_user_response | json}}</h2>
-</div>
-
-<div>
-  <h1>delete_user</h1>
-  <form #delete_user_form="ngForm" (ngSubmit)="delete_user(delete_user_id)">
-    <input type="number" name="delete_user_id" id="" [(ngModel)]="delete_user_id" required>
-    <button type="submit"> submit </button>
-  </form>
-  <div
-    *ngIf="delete_user_form.controls['delete_user_id']?.invalid && delete_user_form.controls['delete_user_id']?.touched">
-    Id is required</div>
-  <h2>{{delete_user_response | json}}</h2>
-</div>
-
-<div>
-  <h1>update_user</h1>
-  <form #update_user_form="ngForm" (ngSubmit)="update_user(update_user_id,update_user_body)">
-    <input type="number" name="update_user_id" [(ngModel)]="update_user_id">
-    <button type="submit">submit</button>
-  </form>
-  <div
-    *ngIf="update_user_form.controls['update_user_id']?.invalid && update_user_form.controls['update_user_id']?.touched ">
-    Id is required</div>
-  <h2>{{update_user_response|json}}</h2>
-</div>
 
 
 <!-- <div>

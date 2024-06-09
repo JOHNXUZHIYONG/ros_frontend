@@ -58,6 +58,17 @@ export class ReportService {
     return this.http.put(url,body).pipe(retry(1), catchError(this.handleError))
   }
 
+  // pdf
+  get_pdf(id:number){
+    const url = `${this.apiUrl}/get_pdf/${id}`
+    return this.http.get(url, { responseType: 'blob' }).pipe(retry(1), catchError(this.handleError))
+  }
+
+  add_pdf(id:number, content:string){
+    const url = `${this.apiUrl}/add_pdf/${id}`
+    return this.http.post(url,content).pipe(retry(1), catchError(this.handleError))
+  }
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {
