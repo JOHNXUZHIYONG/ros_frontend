@@ -64,9 +64,22 @@ export class ReportService {
     return this.http.get(url, { responseType: 'blob' }).pipe(retry(1), catchError(this.handleError))
   }
 
-  add_pdf(id:number, content:string){
+  add_pdf(id:number, body:any){
     const url = `${this.apiUrl}/add_pdf/${id}`
-    return this.http.post(url,content).pipe(retry(1), catchError(this.handleError))
+    
+    // const body = content;
+    console.log('333333333')
+    return this.http.post(url,body).pipe(retry(1), catchError(this.handleError))
+  }
+  
+  delete_pdf(id:number){
+    const url = `${this.apiUrl}/delete_pdf/${id}`
+    return this.http.delete(url).pipe(retry(1), catchError(this.handleError))
+  }
+
+  update_pdf(id:number, body:any){
+    const url = `${this.apiUrl}/update_pdf/${id}`
+    return this.http.put(url, body).pipe(retry(1), catchError(this.handleError))
   }
 
 
@@ -88,22 +101,5 @@ export class ReportService {
   }
 
 
-  get_report(id: number) {
-    const url = `${this.apiUrl}/get_pdf/${id}`
-    return this.http.get(url, { responseType: 'blob' })
-  }
-
-
-
-  getReport(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/fetch_one/${id}`);
-  }
-
-  insertReport(reportData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/insert_one`, reportData);
-  }
-
-  deleteReport(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete_one/${id}`);
-  }
+  
 }

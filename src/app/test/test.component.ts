@@ -1,55 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../report.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit {
+export class TestComponent  {
 
-  report: any;
-  newReport: any;
+  // report: any;
+  // newReport: any;
 
-  constructor(private reportService: ReportService) { }
+  // data: {'use_case': string, 'parameter': string, 'email':string} = {'use_case': 'indoor', 'parameter': "john", 'email':"john@"};
 
-  ngOnInit(): void {
-    this.loadReport(1); // 加载报告，假设 ID 为 1
-  }
+  // constructor(private reportService: ReportService) { }
 
-  loadReport(id: number): void {
-    this.reportService.getReport(id).subscribe(
-      (data) => {
-        this.report = data;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  // ngOnInit(): void {
+  
+  // }
 
-  addReport(): void {
-    this.reportService.insertReport(this.newReport).subscribe(
-      (data) => {
-        console.log('Report added successfully:', data);
-        this.loadReport(data.id); // 加载新添加的报告
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  // print_data(data:any){
+  // data = this.data;
+  
+  // console.log(data)
 
-  deleteReport(id: number): void {
-    this.reportService.deleteReport(id).subscribe(
-      () => {
-        console.log('Report deleted successfully');
-        this.report = null; // 清空报告
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  // }
 
+  // formData: any = {};
+
+  // onSubmit(form: NgForm) {
+  //   if (form.valid) {
+  //     this.formData = form.value;
+  //     console.log('Final Data:', this.formData);
+  //   }
+  // }
+
+  
 }

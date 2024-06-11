@@ -131,7 +131,7 @@
       <h1>add_pdf</h1>
       <form #add_pdf_form="ngForm" (ngSubmit)="add_pdf(add_pdf_id, add_pdf_body)">
         <input type="number" name="add_pdf_id" id="" [(ngModel)]="add_pdf_id" required>
-        <input type="sting" name="add_pdf_body" id="" [(ngModel)]="add_pdf_body" required>
+        <input type="sting" name="add_pdf_body" id="" [(ngModel)]="add_pdf_body.content" required>
         <button type="submit">submit</button>
       </form>
       <div *ngIf="add_pdf_form.controls['add_pdf_id']?.invalid && add_pdf_form.controls['add_pdf_id']?.touched"> Id is
@@ -140,7 +140,32 @@
         Content is required</div>
       <h2>{{add_pdf_response | json}}</h2>
     </div>
+
+    <div>
+      <h1>delete_pdf</h1>
+      <form #delete_pdf_form = "ngForm" (ngSubmit)="delete_pdf(delete_pdf_id)">
+        <input type="number" name="delete_pdf_id" id="" [(ngModel)] = "delete_pdf_id" required>
+        <button type="submit">Submit</button>
+      </form>
+      <div *ngIf="delete_pdf_form.controls['delete_pdf_id']?.invalid && delete_pdf_form.controls['delete_pdf_id']?.touched"> Id is required</div>
+      <h2>{{delete_pdf_response | json}}</h2>
+    </div>
+  
+    <div>
+      <h1>update_pdf</h1>
+      <form #update_pdf_form = 'ngForm' (ngSubmit)="update_pdf(update_pdf_id, update_pdf_body)">
+        <input type="number" name="update_pdf_id" id="" [(ngModel)] = 'update_pdf_id' required>
+        <input type="string" name="update_pdf_body" id="" [(ngModel)] = 'update_pdf_body.content' required>
+        <button type="submit">submit</button>
+      </form>
+      <div *ngIf="update_pdf_form.controls['update_pdf_id']?.invalid && update_pdf_form.controls['update_pdf_id']?.touched"> id is required</div>
+      <div *ngIf="update_pdf_form.controls['update_pdf_body']?.invalid && update_pdf_form.controls['update_pdf_body']?.touched">content is required</div>
+      <h2>{{update_pdf_response | json}}</h2>
+    </div>
   </div>
+
+
+
 
   <div class="stepper">
     <mat-stepper>

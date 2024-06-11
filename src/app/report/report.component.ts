@@ -41,29 +41,18 @@ throw new Error('Method not implemented.');
   get_pdf_response:any;
 
   add_pdf_id: number =1;
-  add_pdf_body: string = '';
+  add_pdf_body: {'content':string} = {'content': ""};
   add_pdf_response: any;
 
+  delete_pdf_id:number = 1;
+  delete_pdf_response:any;
 
-  report: any;
-  item: any;
-  // body = {"name": "john",
-  //   "price" : 1
-  // };
+  update_pdf_id:number = 1;
+  update_pdf_body: {"content": string} = {'content':""};
+  update_pdf_response: any;
 
-  newReport: any;
-  pdf: any;
 
   constructor(private reportService: ReportService) { }
-
-  show_hello(){
-    this.reportService.get().subscribe((data) => {
-      this.report = data;
-    },
-    (error) => {
-      console.error(error);
-    })
-  }
 
   get_item(id:number){
     id = this.item_id;
@@ -136,52 +125,28 @@ get_pdf (id:number){
 )
 }
 
-add_pdf(id:number, content:string){
+add_pdf(id:number, body:any){
   id =  this.add_pdf_id;
-  content = this.add_pdf_body;
-  this.reportService.add_pdf(id,content).subscribe( data =>{this.add_pdf_response = data}, error =>{this.add_pdf_response=error}  )
+  body = this.add_pdf_body;
+  console.log(body)
+  this.reportService.add_pdf(id,body).subscribe( data =>{this.add_pdf_response = data}, error =>{this.add_pdf_response=error}  )
+}
+
+delete_pdf(id:number){
+  id = this.delete_pdf_id;
+  this.reportService.delete_pdf(id).subscribe((data)=>{this.delete_pdf_response = data}, (error)=>{this.delete_pdf_response = error})
+}
+
+update_pdf(id:number, body:any){
+  id = this.update_pdf_id;
+  body = this.update_pdf_body;
+  this.reportService.update_pdf(id,body).subscribe((data)=>{this.update_pdf_response = data}, error=>{this.update_pdf_response = error;})
 }
 
 
-
   ngOnInit(): void {
-    this.show_hello();
-    // this.loadReport(1); // 加载报告，假设 ID 为 1
+   
   }
 
-  loadReport(id: number): void {
-    this.reportService.getReport(id).subscribe(
-      (data) => {
-        this.report = data;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  addReport(): void {
-    this.reportService.insertReport(this.newReport).subscribe(
-      (data) => {
-        console.log('Report added successfully:', data);
-        this.loadReport(data.id); // 加载新添加的报告
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  deleteReport(id: number): void {
-    this.reportService.deleteReport(id).subscribe(
-      () => {
-        console.log('Report deleted successfully');
-        this.report = null; // 清空报告
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
+  
 }
