@@ -100,6 +100,11 @@ export class ReportService {
     }
   }
 
+  add_inputs_data(body:any){
+    const url = `${this.apiUrl}/add_inputs_data`
+    return this.http.post(url, body).pipe(retry(1), catchError(this.handleError))
+  }
+
 
   
 }

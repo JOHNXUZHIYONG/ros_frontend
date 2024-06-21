@@ -8,33 +8,64 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent  {
+  constructor(private reportService: ReportService) { }
 
-  // report: any;
-  // newReport: any;
+  // use case inputs
+  use_case: string = 'indoor';
+  thrVsCommRadius: boolean = false;
+  effVsCommRadius: boolean = false;
+  effVsTxPower: boolean = false;
+  latVsCommRadius: boolean = false;
+  latVsTaskSize: boolean = false;
+  selectAll: boolean = false;
 
-  // data: {'use_case': string, 'parameter': string, 'email':string} = {'use_case': 'indoor', 'parameter': "john", 'email':"john@"};
+  // parameters inputs
+  task_size_value: number = 10;
+  bandwidth_value: number = 10;
+  speed_value: number = 10;
+  hops_value: number =5;
+  comm_rad_value: number =100;
+  num_sam_value: number = 50;
 
-  // constructor(private reportService: ReportService) { }
+  email:string = "";
 
-  // ngOnInit(): void {
+  add_inputs_data_reponse: any;
+
+  onSelectAllChange(){
+    const selectAll =this.selectAll;
+    this.thrVsCommRadius = selectAll;
+    this.effVsCommRadius = selectAll;
+    this.effVsTxPower = selectAll;
+    this.latVsCommRadius = selectAll;
+    this.latVsTaskSize = selectAll;
+
+
+  }
   
-  // }
 
-  // print_data(data:any){
-  // data = this.data;
-  
-  // console.log(data)
+  submit_inputs_data(){
+    let inputs_data = { 
+      use_case: this.use_case,
+      thrVsCommRadius: this.thrVsCommRadius,
+      effVsCommRadius: this.effVsCommRadius,
+      effVsTxPower: this.effVsTxPower,
+      latVsCommRadius: this.latVsCommRadius,
+      latVsTaskSize: this.latVsTaskSize,
 
-  // }
+      task_size_value: this.task_size_value,
+      bandwidth_value: this.bandwidth_value,
+      speed_value: this.speed_value,
+      hops_value: this.hops_value,
+      comm_rad_value: this.comm_rad_value,
+      num_sam_value: this.num_sam_value,
 
-  // formData: any = {};
+      email: this.email
+    }
 
-  // onSubmit(form: NgForm) {
-  //   if (form.valid) {
-  //     this.formData = form.value;
-  //     console.log('Final Data:', this.formData);
-  //   }
-  // }
+    this.reportService.add_inputs_data(inputs_data).subscribe(data=>{this.add_inputs_data_reponse = data}, error=>{this.add_inputs_data_reponse = error})
+   
 
+
+  }
   
 }

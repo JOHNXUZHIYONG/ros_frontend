@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 const MaterialComponents = [
@@ -28,6 +29,7 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatInputModule,
   MatStepperModule,
+  MatRadioModule
 ];
 
 

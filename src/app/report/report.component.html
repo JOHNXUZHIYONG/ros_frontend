@@ -8,7 +8,7 @@
         <mat-label>Get an item by ID</mat-label>
         <input matInput placeholder="key in ID" type="number" name="item_id" [(ngModel)]="item_id" required>
 
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button  color="primary" type="submit">Submit</button>
         <div *ngIf="getform.controls['item_id']?.invalid && getform.controls['item_id']?.touched">
           Item ID is required
         </div>
@@ -58,11 +58,11 @@
     <div>
       <h1>get_user</h1>
       <form #get_user_form="ngForm" (ngSubmit)="get_user(get_user_id)">
-        <mat-form-field>
-          <mat-label>Get an user by id</mat-label>
+        <!-- <mat-form-field>
+          <mat-label>Get an user by id</mat-label> -->
           <input matInput type="number" name="get_user_id" [(ngModel)]="get_user_id" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">submit</button>
+        <!-- </mat-form-field> -->
+        <button  color="primary" type="submit">submit</button>
       </form>
       <div *ngIf="get_user_form.controls['get_user_id']?.invalid && get_user_form.controls['get_user_id']?.touched"> Id
         is
@@ -167,7 +167,7 @@
 
 
 
-  <div class="stepper">
+  <!-- <div class="stepper">
     <mat-stepper>
       <mat-step label="Select a Use Case">
         <p>Please select a use case</p>
@@ -184,7 +184,7 @@
         <button matStepperNext mat-raised-button type="button">Next</button>
       </mat-step>
     </mat-stepper>
-  </div>
+  </div> -->
 
 
 </div>

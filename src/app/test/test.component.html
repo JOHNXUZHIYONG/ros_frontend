@@ -1,79 +1,103 @@
-<p>test works!</p>
-<!-- <div *ngIf="report">
-    <h2>Report Details</h2>
-    <p>ID: {{ report.id }}</p>
-    <p>Name: {{ report.name }}</p>
-    <p>Age: {{ report.age }}</p>
-  </div> -->
-  
-  <!-- <button (click)="addReport()">Add Report</button>
-  <button (click)="deleteReport(report.id)">Delete Report</button> -->
-  
-  <!-- <div class="stepper" >
-    
-    <mat-stepper leaner>
-      <form #data = "ngForm" (ngSubmit)="print_data(data)">
-      <mat-step label="Select a Use Case" completed="false" >
-        <p>Please select a use case</p>
-        <input type="text" name="use_case" id="" [(ngModel)] = "data.use_case">
-        <button matStepperNext mat-raised-button type="button">Next</button>
-      </mat-step>
-      <mat-step label="Select Parameters" completed="false" >
-        <p>Please select parameters</p>
-        <input type="text" name="parameters" id="" >
-        <button matStepperPrevious mat-raised-button type="button">Back</button>
-        <button matStepperNext mat-raised-button type="button">Next</button>
-      </mat-step>
+<mat-stepper linear>
+  <mat-step label="Choose A Use Case" completed>
+    <mat-radio-group [(ngModel)]="use_case">
 
-      <mat-step label="Email Address" completed="false" >
-        <p>Please key in you email address to receive report</p>
-        <input type="text" name="email" id="">
-        <button matStepperPrevious mat-raised-button type="button">Back</button>
-        <button matStepperNext mat-raised-button type="submit">submit</button>
-      </mat-step>
-      </form>
-    </mat-stepper>
-  
-  </div>
-  <h1>{{data | json}}</h1> -->
+      <mat-radio-button value="indoor" color="primary">Indoor Use Case</mat-radio-button>
+      <mat-radio-button value="outdoor" color="primary">Outdoor Use Case</mat-radio-button>
+    </mat-radio-group>
 
-  <!-- <mat-horizontal-stepper linear>
-    <form #mainForm="ngForm" (ngSubmit)="onSubmit(mainForm)">
-      <mat-step [stepControl]="mainForm">
-        <ng-template matStepLabel>Step 1</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="First Name" name="firstName" ngModel required>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Last Name" name="lastName" ngModel required>
-        </mat-form-field>
+    <mat-divider></mat-divider>
+    <div class="options">
+      <mat-checkbox [(ngModel)]="thrVsCommRadius" color="primary">
+        Calculate Throughput vs Communication Radius
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="effVsCommRadius" color="primary">
+        Calculate Energy Efficiency vs Communication Radius
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="effVsTxPower" color="primary">
+        Calculate Energy Efficiency vs Transmit Power (dBm)
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="latVsCommRadius" color="primary">
+        Calculate Latency vs Communication Radius
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="latVsTaskSize" color="primary">
+        Calculate Latency vs Task size
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="selectAll" (change)="onSelectAllChange()" color="primary">
+        Select All
+      </mat-checkbox>
+    </div>
+    <mat-divider></mat-divider>
+
+    <button mat-raised-button matStepperNext type="button"> Next </button>
+  </mat-step>
+
+
+
+  <mat-step label="Choose Parameters" completed>
+    <mat-card><mat-card-content class="Parameters">
         <div>
-          <button mat-button matStepperNext type="button">Next</button>
+          Task Size: {{task_size_value}} kb
+          <mat-slider min="1" max="10" step="1" [discrete]="true"> <input matSliderThumb [(ngModel)]="task_size_value">
+          </mat-slider>
         </div>
-      </mat-step>
-  
-      <mat-step [stepControl]="mainForm">
-        <ng-template matStepLabel>Step 2</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Email" name="email" ngModel required email>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Phone Number" name="phone" ngModel required>
-        </mat-form-field>
+        
         <div>
-          <button mat-button matStepperPrevious type="button">Back</button>
-          <button mat-button matStepperNext type="button">Next</button>
+          Bandwidth: {{bandwidth_value}} MHz
+          <mat-slider min="1" max="10" step="1" [discrete]="true"><input matSliderThumb
+              [(ngModel)]="bandwidth_value"></mat-slider>
+          
         </div>
-      </mat-step>
-  
-      <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
         <div>
-          <button mat-button matStepperPrevious type="button">Back</button>
-          <button mat-button type="submit">Submit</button>
+          Speed: {{speed_value}} mps
+          <mat-slider min="0" max="20" step="1" [discrete]="true"><input matSliderThumb [(ngModel)]="speed_value">
+          </mat-slider>
+       
         </div>
-      </mat-step>
+        <div>
+          Hops: {{hops_value}}
+          <mat-slider min="1" max="10" step="1" [discrete]="true"><input matSliderThumb
+              [(ngModel)]="hops_value"></mat-slider>
+        
+        </div>
+        <div>
+          Communication Radius: {{comm_rad_value}} m
+          <mat-slider min="50" max="200" step="50" [discrete]="true"><input matSliderThumb [(ngModel)]="comm_rad_value">
+          </mat-slider>
+     
+        </div>
+        <div>
+          Number of Samples: {{num_sam_value}}
+          <mat-slider min="1" max="100" step="1" [discrete]="true"><input matSliderThumb [(ngModel)]="num_sam_value">
+          </mat-slider>
+        </div>
+   
+      </mat-card-content></mat-card>
+      <div class="button">
+        <button mat-raised-button matStepperPrevious type="button"> Back </button>
+        <button mat-raised-button matStepperNext type="button"> Next </button>
+      </div>
+
+
+  </mat-step>
+
+
+  <mat-step label="Provide Your Email" completed>
+    <div class="email">
+    <form #emailForm="ngForm" (ngSubmit)="submit_inputs_data()">
+      <div>
+      <label for="email"> Key in Your Email : </label>
+      <input type="text" name="email" id="email" [(ngModel)]="email" required>
+    </div>
+      <!-- <h1>{{email}}</h1> -->
+       <div class="button">
+      <button mat-raised-button matStepperPrevious type="button"> Back </button>
+      <button mat-raised-button type="submit" [disabled]="!emailForm.valid">Submit</button>
+    </div>
     </form>
-  </mat-horizontal-stepper>
-   -->
+  </div>
+  </mat-step>
+
+</mat-stepper>
+
+<h1>{{add_inputs_data_reponse|json}}</h1>

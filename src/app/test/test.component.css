@@ -1,0 +1,59 @@
+mat-stepper{
+    margin: auto;
+}
+
+mat-step {
+    border: solid 2px black;
+}
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    border: solid 2px black;
+    padding-left: 15%;
+
+}
+
+
+mat-card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:start;
+    border: solid 2px black;
+    padding-left: 30%;
+   
+}
+
+.button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    /* background-color: aqua; */
+
+}
+/* .Parameters div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+} */
+
+.email{
+    height: 300px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    border: solid 2px black;
+
+}
+.email div {
+    margin: 50px;
+}
+
+/* .email{
+
+} */
+
